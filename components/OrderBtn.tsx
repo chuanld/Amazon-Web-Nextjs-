@@ -12,8 +12,7 @@ const OrderBtn = () => {
   const { data: session } = useSession()
   const {orderProduct} = store()
 
-  const [orderLoading, setOrderLoading] = useState<boolean>(false)
-  const [ordersSnapshot, loading] = useCollection(
+  const [ordersSnapshot] = useCollection(
     session?.user &&
     query(collection(db,'users',session?.user?.email as string, 'orders'))
   )

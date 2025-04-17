@@ -1,16 +1,14 @@
 'use client'
 import { store } from '@/lib/store'
 import React from 'react'
-import Image from 'next/image'
 import { Product } from '@/type'
 import PriceFormat from './PriceFormat'
-import { Trash2 } from 'lucide-react'
 import Title from './Title'
 import CartProductCard from './CartProductCard'
 import CartSumary from './CartSumary'
 
 const CartProducts = () => {
-    const { cartProduct, removeFromCart, addToCart, decreaseQuantity } = store()
+    const { cartProduct } = store()
 
     if (!cartProduct?.length) return (
         <div className="flex flex-col items-center justify-center min-h-[400px]">

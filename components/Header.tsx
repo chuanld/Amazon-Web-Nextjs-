@@ -11,7 +11,6 @@ import HeaderBottom from "./HeaderBottom";
 import SearchInput from "./SearchInput";
 import OrderBtn from "./OrderBtn";
 import { useFetchData } from "@/hooks/fetchData";
-import { CategoryItems } from "@/type";
 
 const Header = async () => {
   const session = await auth();

@@ -1,7 +1,7 @@
 'use client'
 import { store } from '@/lib/store'
 import { Product } from '@/type'
-import { use, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 

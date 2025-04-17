@@ -3,15 +3,15 @@ import { db } from '@/lib/firebase'
 import { Order } from '@/type'
 import { collection, query } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import OrderLoader from './OrderLoader'
 import Link from 'next/link'
 
 const OrdersList =  () => {
   const { data: session } = useSession()
-  const [expandedOrder, setExpandedOrder] = useState<any>(null)
-  const [orderLoading, setOrderLoading] = useState<boolean>(false)
+  const [, setExpandedOrder] = useState<any>(null)
+  const [orderLoading, ] = useState<boolean>(false)
   const [ordersSnapshot, loading] = useCollection(
     session?.user &&
     query(collection(db,'users',session?.user?.email as string, 'orders'))

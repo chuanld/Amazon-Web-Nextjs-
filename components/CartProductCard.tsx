@@ -4,7 +4,6 @@ import React from 'react'
 import AddtoCartBtn from './AddtoCartBtn'
 import PriceFormat from './PriceFormat'
 import { store } from '@/lib/store'
-import { Trash2 } from 'lucide-react'
 import Link from 'next/link'
 
 interface CartProductCardProps {

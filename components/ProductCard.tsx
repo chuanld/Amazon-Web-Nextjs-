@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React from 'react'
 import ProductIcon from './ProductIcon';
 import AddtoCartBtn from './AddtoCartBtn';
-import PriceFormat from './PriceFormat';
 
 interface ProductCardProps {
   product: Product;
@@ -75,7 +74,7 @@ const ProductCard = ({product}: ProductCardProps) => {
         </div>
 
         <div className="mt-auto">
-          <AddtoCartBtn product={product} cls="w-full" />
+          <AddtoCartBtn product={product} cls="w-full" showSubtotal={true}/>
           {product.stock <= 20 && (
             <p className="text-xs text-red-600 mt-2">
               Only {product.stock} left in stock - order soon

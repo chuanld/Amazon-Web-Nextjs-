@@ -7,7 +7,7 @@ import PriceFormat from './PriceFormat';
 import { Product } from '@/type';
 import { store } from '@/lib/store';
 import { paymentImage } from '@/assets';
-import { MdStarRate, MdStart } from 'react-icons/md';
+import { MdStarRate } from 'react-icons/md';
 import toast from 'react-hot-toast';
 import LoadingSpinner from './ui/loading';
 
@@ -94,7 +94,7 @@ const ProductSingle = ({ id }: { id: string }) => {
                 className="text-3xl font-bold text-amazonOrange mb-4"
               />
               <div className="mb-4">
-                <AddtoCartBtn product={product} cls='' />
+                <AddtoCartBtn product={product} cls='' showSubtotal={true}  />
               </div>
               <div className="mt-6">
                 <h2 className="text-lg font-semibold mb-2">Specifications:</h2>
@@ -204,7 +204,7 @@ const ProductSingle = ({ id }: { id: string }) => {
                     <div className="flex items-center gap-2 mt-2">
 
                       <div className="mb-4">
-                        <AddtoCartBtn product={item} cls={'flex-col items-left text-sm'} />
+                        <AddtoCartBtn product={item} cls={'flex-col items-left text-sm'} showSubtotal={true} />
                       </div>
                     </div>
                   </div>

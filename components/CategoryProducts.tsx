@@ -1,6 +1,5 @@
 'use client'
 import React, { useCallback, useEffect, useState } from 'react';
-import Image from 'next/image';
 import { CategoryItems, Product } from '@/type';
 import LoadingSpinner from './ui/loading';
 import { useFetchData } from '@/hooks/fetchData';
@@ -14,7 +13,7 @@ interface CategoryProductsProps {
 }
 
 const CategoryProducts = ({ id, categories }: CategoryProductsProps) => {
-    const [currentCate, setCurrentCate] = useState(id)
+    const [currentCate] = useState(id)
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 

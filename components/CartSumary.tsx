@@ -2,12 +2,11 @@
 import React, { useState } from 'react'
 import PriceFormat from './PriceFormat'
 import { store } from '@/lib/store'
-import toast from 'react-hot-toast'
 import { useSession } from 'next-auth/react'
 import { Product } from '@/type'
 const CartSumary = () => {
 
-    const { cartProduct ,resetCart} = store()
+    const { cartProduct } = store()
     const { data: session } = useSession()
     const [isLoading, setIsLoading] = useState(false)
     const calculateSubtotal = () => {
@@ -60,7 +59,7 @@ const CartSumary = () => {
 
                 {
                     cartProduct?.map((item: Product) => (
-                        <div className='flex justify-between items-center gap-2 mb-2'>
+                        <div className='flex justify-between items-center gap-2 mb-2' key={item.id.toString()}>
                             <div className='flex justify-start items-center gap-2'>
                                 <p className='text-sm text-amazonGreen'>#{item.tags} </p>
                                 <p> [ x{item.quantity} ]</p>

@@ -1,6 +1,4 @@
 import { auth } from '@/auth'
-import Container from '@/components/Container'
-import Title from '@/components/Title'
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import React from 'react'
