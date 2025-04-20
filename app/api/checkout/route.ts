@@ -7,9 +7,9 @@ export const POST = async (req:NextRequest)=>{
     const STRIPE_KEY = process.env.STRIPE_SECRET_KEY as string
     if(!STRIPE_KEY) throw new Error("Stripe is not initiated")
     const stripe = new Stripe(STRIPE_KEY)
-    const NEXT_AUTH_URL = process.env.NEXT_PUBLIC_NEXT_AUTH_URL || 'http://localhost:3000'
-    const successUrl = `${NEXT_AUTH_URL}/success?session_id={CHECKOUT_SESSION_ID}`
-    const cancelUrl = `${NEXT_AUTH_URL}/cart`
+    const domain = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+    const successUrl = `${domain}/success?session_id={CHECKOUT_SESSION_ID}`
+    const cancelUrl = `${domain}/cart`
     try {
         const reqBody  =  await req.json()
         const {items,email} = await reqBody
