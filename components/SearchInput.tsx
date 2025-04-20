@@ -1,12 +1,12 @@
 "use client";
-import React, { use, useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { CategoryItems, Product } from "@/type";
 import CategoryListView from "./CategoryListView";
-import { useFetchData } from "@/hooks/fetchData";
+import { fetchData } from "@/hooks/fetchData";
 import { useDebounce } from "@/hooks/debounce";
 
 
@@ -19,7 +19,7 @@ const SearchInput = ({ categories }: CategoryItems) => {
   const searchProducts = async (query:string) => {
     try {
       const edp = `https://dummyjson.com/products/search?q=${query}`;
-      const res = await useFetchData(edp);
+      const res = await fetchData(edp);
       setProducts(res?.products);
     } catch (err) {
       console.error(err);

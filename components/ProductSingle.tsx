@@ -1,10 +1,9 @@
 'use client'
-import { useFetchData } from '@/hooks/fetchData';
+import { fetchData } from '@/hooks/fetchData';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AddtoCartBtn from './AddtoCartBtn';
 import PriceFormat from './PriceFormat';
-import { Product } from '@/type';
 import { store } from '@/lib/store';
 import { paymentImage } from '@/assets';
 import { MdStarRate } from 'react-icons/md';
@@ -13,7 +12,6 @@ import LoadingSpinner from './ui/loading';
 
 const ProductSingle = ({ id }: { id: string }) => {
   const [product, setProduct] = useState<any>(null);
-  const [existingProduct, setExistingProduct] = useState<Product | null>(null)
   const { cartProduct,addToCart } = store()
 
 
@@ -21,7 +19,7 @@ const ProductSingle = ({ id }: { id: string }) => {
   const getProductById = async (id: string) => {
     try {
       const edp = `https://dummyjson.com/products/${id}`;
-      const res = await useFetchData(edp);
+      const res = await fetchData(edp);
       setProduct(res);
     } catch (err) {
       console.error(err);
@@ -30,8 +28,6 @@ const ProductSingle = ({ id }: { id: string }) => {
 
   useEffect(() => {
     getProductById(id);
-    const availableItem = cartProduct.find((item) => item?.id === product?.id)
-    setExistingProduct(availableItem || null)
   }, [id, cartProduct]);
 
   if (!product) {

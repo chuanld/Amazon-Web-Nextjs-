@@ -10,7 +10,7 @@ import ProductFilter from './ProductFilter'
 import ProductCard from './ProductCard'
 import LoadingSpinner from './ui/loading'
 import { AnimatePresence, motion } from 'motion/react'
-import { useFetchData } from '@/hooks/fetchData'
+import { fetchData } from '@/hooks/fetchData'
 import useOnScreen from '@/hooks/useScreen'
 
 export default function AllProduct({ categories }: { categories: string[] }) {
@@ -39,7 +39,7 @@ export default function AllProduct({ categories }: { categories: string[] }) {
         const filterPrice = priceFilter ? `sortBy=price&order=${priceFilter}` : '';
         const edp = `https://dummyjson.com/products${categoryFilter}?${filterPrice}&limit=${perPage}&skip=${reset ? 0 : (currentPage - 1) * perPage}`;
         try {
-            const data = await useFetchData(edp);
+            const data = await fetchData(edp);
             if (reset) {
                 setProducts(data?.products || [])
                 setHasMore(data?.products?.length > 0)

@@ -1,4 +1,4 @@
-export const useFetchData = async (endpoint: string) => {
+export const fetchData = async (endpoint: string) => {
     const res = await  fetch(endpoint,{
         headers: {
             'Content-Type': 'application/json',

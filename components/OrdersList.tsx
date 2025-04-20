@@ -10,7 +10,6 @@ import Link from 'next/link'
 
 const OrdersList =  () => {
   const { data: session } = useSession()
-  const [, setExpandedOrder] = useState<any>(null)
   const [orderLoading, ] = useState<boolean>(false)
   const [ordersSnapshot, loading] = useCollection(
     session?.user &&
@@ -26,9 +25,7 @@ const OrdersList =  () => {
     timestamp: doc.data()?.timestamp?.toDate()
   })) as Order[]
 
-  const toggleDetails = (orderId: string) => {
-    setExpandedOrder((prev: any) => (prev === orderId ? null :orderId))
-  }
+
 
   console.log(orders, 'orders')
   

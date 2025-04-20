@@ -5,7 +5,7 @@ import { Order } from "@/type";
 import { collection, query } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 
 const OrderBtn = () => {
@@ -19,8 +19,9 @@ const OrderBtn = () => {
 
 
 
-
-  const orders = ordersSnapshot?.docs.map((doc: any) => ({
+  //disbled eslint for the next line
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const orders = ordersSnapshot?.docs.map((doc:any) => ({
     id: doc.id,
     ...doc.data(),
     timestamp: doc.data()?.timestamp?.toDate()

@@ -13,7 +13,7 @@ const CartProducts = () => {
     if (!cartProduct?.length) return (
         <div className="flex flex-col items-center justify-center min-h-[400px]">
             <h2 className="text-2xl font-bold mb-4">Your Amazon Cart is empty</h2>
-            <p className="text-gray-600">Shop today's deals</p>
+            <p className="text-gray-600">Shop today&apos;s deals</p>
         </div>
     )
 

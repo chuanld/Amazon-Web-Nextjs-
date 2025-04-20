@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { CategoryItems, Product } from '@/type';
 import LoadingSpinner from './ui/loading';
-import { useFetchData } from '@/hooks/fetchData';
+import { fetchData } from '@/hooks/fetchData';
 import { AnimatePresence, motion } from 'motion/react';
 import ProductCard from './ProductCard';
 import { useRouter } from 'next/navigation';
@@ -19,15 +19,13 @@ const CategoryProducts = ({ id, categories }: CategoryProductsProps) => {
 
     const router = useRouter()
 
-    if (categories.length === 0) {
-        return <div><LoadingSpinner size='md' text='' height='min-h-screen' /></div>;
-    }
+    
 
     const getProductByCategory = async () => {
         setIsLoading(true)
         try {
             const edp = `https://dummyjson.com/products/category/${currentCate}`
-            const { products } = await useFetchData(edp)
+            const { products } = await fetchData(edp)
             setProducts(products)
         } catch (err) {
             console.error(err)
@@ -35,16 +33,18 @@ const CategoryProducts = ({ id, categories }: CategoryProductsProps) => {
     }
 
     useEffect(() => {
-        if (!id) return
-        getProductByCategory()
-    }, [])
+        if (id) getProductByCategory()
+    }, [id])
 
     const handleClickCategory = useCallback(
         (category: string) => {
-            if (category === currentCate) return
+            if (category === currentCate) return null
             router.push(`/category/${category}`)
         }
         , [router, currentCate])
+    if (categories.length === 0) {
+        return <div><LoadingSpinner size='md' text='' height='min-h-screen' /></div>;
+    }
 
     return (
         <div className="flex mx-auto min-h-screen p-4">

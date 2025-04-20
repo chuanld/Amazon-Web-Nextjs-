@@ -10,12 +10,12 @@ import SignInButton from "./SignInButton";
 import HeaderBottom from "./HeaderBottom"; 
 import SearchInput from "./SearchInput";
 import OrderBtn from "./OrderBtn";
-import { useFetchData } from "@/hooks/fetchData";
+import { fetchData } from "@/hooks/fetchData";
 
 const Header = async () => {
   const session = await auth();
   const edp = 'https://dummyjson.com/products/category-list'
-  const categories = await useFetchData(edp)
+  const categories = await fetchData(edp)
   
 
 

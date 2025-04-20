@@ -11,12 +11,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useFetchData } from "@/hooks/fetchData";
+import { fetchData } from "@/hooks/fetchData";
 import Image from "next/image";
 
 export default async function Home() {
 
-  const {products} = await useFetchData('https://dummyjson.com/products')
+  const {products} = await fetchData('https://dummyjson.com/products')
 
 
   const bannerImages = [

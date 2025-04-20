@@ -1,5 +1,5 @@
 import CategoryProducts from '@/components/CategoryProducts'
-import { useFetchData } from '@/hooks/fetchData'
+import { fetchData } from '@/hooks/fetchData'
 import React from 'react'
 
 type Props = Promise<{
@@ -8,7 +8,7 @@ type Props = Promise<{
 const Category = async ({params}:{params:Props}) => {
   const {id} = await params
   const edp = 'https://dummyjson.com/products/category-list'
-  const categories = await useFetchData(edp)
+  const categories = await fetchData(edp)
 
 
   return (
