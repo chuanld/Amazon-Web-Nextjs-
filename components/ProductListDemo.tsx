@@ -1,17 +1,13 @@
 'use client'
 import { Product } from '@/type'
-
-
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Title from './Title'
 import Container from './Container'
 import { Card, CardContent } from './ui/card'
 import ProductFilter from './ProductFilter'
 import ProductCard from './ProductCard'
 import LoadingSpinner from './ui/loading'
-import { AnimatePresence, motion } from 'motion/react'
 import { fetchData } from '@/hooks/fetchData'
-import useOnScreen from '@/hooks/useScreen'
 import useInfiniteScroll from '@/hooks/useInfiniteScroll'
 
 

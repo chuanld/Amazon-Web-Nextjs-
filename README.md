@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org)/TypeScript demo Infinite scroll, search query. 
 
 ## Getting Started
 
@@ -6,15 +6,13 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
+# Infinite scroll with IntersectionObserver
+->All Products (subHeader) -> https://amazon-web-nextjs.vercel.app/products
 
-
+# Search on header 
+->TypeInput -> debounceSearch 0.5s -> call Api search (search?q='')
 
 
 ## Deploy on Vercel

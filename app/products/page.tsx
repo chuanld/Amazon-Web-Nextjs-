@@ -1,4 +1,3 @@
-import AllProduct from '@/components/AllProduct'
 import ProductListDemo from '@/components/ProductListDemo'
 import { fetchData } from '@/hooks/fetchData'
 
